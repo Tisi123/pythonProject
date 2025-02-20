@@ -5,3 +5,4 @@
 .venv/
 documents/
 context.py
+__pycache__/
