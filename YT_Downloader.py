@@ -3,7 +3,7 @@ from pytubefix.cli import on_progress
 from sys import argv
 from moviepy.editor import *
 import os
-import context
+import context.context as context
 
 link = "https://youtu.be/_a5UACtf8Cc"
 directory = context.download_directory

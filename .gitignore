@@ -4,5 +4,5 @@
 
 .venv/
 documents/
-context.py
+context/
 __pycache__/

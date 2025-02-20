@@ -1,7 +1,7 @@
 import os
 from RedDownloader import RedDownloader
 import shutil
-import context
+import context.context as context
 
 link = "https://www.reddit.com/r/shitposting/comments/1g647ob/_/"
 download_directory = context.download_directory

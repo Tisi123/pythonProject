@@ -1,6 +1,6 @@
 import os
 import shutil
-import context
+import context.context as context
 
 download_directory = context.download_directory
 screenshot_directory = context.screenshot_directory

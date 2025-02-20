@@ -1,6 +1,6 @@
 from rembg import remove
 from PIL import Image
-import context
+import context.context as context
 
 
 def remove_background(image_name, image_format):
