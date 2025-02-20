@@ -3,9 +3,10 @@ from pytubefix.cli import on_progress
 from sys import argv
 from moviepy.editor import *
 import os
+import context
 
 link = "https://youtu.be/_a5UACtf8Cc"
-directory = "D:/Downloads"
+directory = context.download_directory
 
 
 def download_video(yt_link):

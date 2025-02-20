@@ -1,0 +1,6 @@
+download_directory = "D:/Downloads"
+screenshot_directory = "D:/Screenshots"
+video_directory = "D:/Screenshots/vids"
+music_directory = "D:/Music"
+saves_directory = "D:/Games/Neuer Ordner/saves"
+image_directory = "D:/Screenshots/Filmora Projects/ESO/"

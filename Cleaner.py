@@ -1,11 +1,12 @@
 import os
 import shutil
+import context
 
-download_directory = "D:/Downloads"
-screenshot_directory = "D:/Screenshots"
-video_directory = "D:/Screenshots/vids"
-music_directory = "D:/Music"
-saves_directory = "D:/Games/Neuer Ordner/saves"
+download_directory = context.download_directory
+screenshot_directory = context.screenshot_directory
+video_directory = context.video_directory
+music_directory = context.music_directory
+saves_directory = context.saves_directory
 
 for file in os.listdir(download_directory):
     filename = os.fsdecode(file)

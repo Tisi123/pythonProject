@@ -1,9 +1,10 @@
 import os
 from RedDownloader import RedDownloader
 import shutil
+import context
 
 link = "https://www.reddit.com/r/shitposting/comments/1g647ob/_/"
-download_directory = "D:/Downloads"
+download_directory = context.download_directory
 name = "AOAIOA"
 
 file = RedDownloader.Download(url=link, output=name, quality=1080)
