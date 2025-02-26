@@ -78,4 +78,4 @@ while True:
         print(cookie_per_s)
         break
 
-    
+driver.quit()
