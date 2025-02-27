@@ -6,3 +6,4 @@
 documents/
 context/
 __pycache__/
+price_checker.py
