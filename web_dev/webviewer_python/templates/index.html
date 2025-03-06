@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../static/styles.css">
+    <title>Document</title>
+</head>
+<body>
+{%for media in media_directories:%}
+    {%if media.is_dir() or media.is_file():%}
+    <div class="content">
+        <div class="card">
+            <p class="text">{{media.name}} </p>
+            <a href="{{url_for('show_images', name = media.name)}}">Images</a>
+            <a href="{{url_for('show_vids', name = media.name)}}">Videos</a>
+        </div>
+    </div>      
+    {%endif%}
+{%endfor%}
+</body>
+</html>
