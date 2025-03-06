@@ -10,4 +10,5 @@ price_checker.py
 
 web_dev/personal_site/static/
 web_dev/blog_site/static
+web_dev/personal_site/static
 web_dev/webviewer_python/static
