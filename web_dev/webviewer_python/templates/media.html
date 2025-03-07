@@ -7,8 +7,10 @@
     <title>Document</title>
 </head>
 <body>
-{%for post in post_entries%}
-    <img src="{{url_for('static', filename=post)}}" alt="">    
-{%endfor%}
+    <div class="container">
+        {%for post in post_entries%}
+            <img src="{{url_for('static', filename=post)}}" alt="">    
+        {%endfor%}
+    </div>
 </body>
 </html>

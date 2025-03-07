@@ -7,8 +7,10 @@
     <title>Document</title>
 </head>
 <body>
-{%for post in post_entries%}
-    <video controls src="{{url_for('static', filename=post)}}" width='560' height='315' muted loop></video>    
-{%endfor%}
+    <div class="container"> 
+        {%for post in post_entries%}
+            <video controls src="{{url_for('static', filename=post)}}" width='560' height='315' muted loop></video>    
+        {%endfor%}
+    </div>
 </body>
 </html>

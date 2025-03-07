@@ -11,6 +11,19 @@ media_directories = os.scandir(webviewer_dir)
 image_array = [".jpg", ".jpeg", ".png", ".gif", ".bmp", ".webp", ".svg", ".ico"]
 video_array = [".mp4", ".webm", ".ogg", ".avi", ".mov", ".wmv", ".mkv", ".m4v", ".m4v",".mpv", ".m4p", ".m4r", ".m4v"]
 
+
+def get_content(name, format):
+    requested_post = os.scandir(webviewer_dir+name)
+    return_array = []
+    for entry in requested_post :
+        filename = os.fsdecode(entry)
+        _, extension = os.path.splitext(filename)
+        if extension in format:
+            return_array.append("contents/"+name + "/"+entry.name)
+    random.shuffle(return_array)
+    return return_array
+
+
 @app.route('/')
 def home():
     return render_template('index.html', media_directories=media_directories)
@@ -18,27 +31,13 @@ def home():
 
 @app.route("/media/<path:name>")
 def show_images(name):
-    requested_post = os.scandir(webviewer_dir+name)
-    images = []
-    for entry in requested_post :
-        filename = os.fsdecode(entry)
-        _, extension = os.path.splitext(filename)
-        if extension in image_array:
-            images.append("contents/"+name + "/"+entry.name)
-    random.shuffle(images)
+    images = get_content(name, image_array)
     return render_template("media.html", post_entries=images)
 
 
 @app.route("/vids/<path:name>")
 def show_vids(name):
-    requested_post = os.scandir(webviewer_dir+name)
-    vids = []
-    for entry in requested_post :
-        filename = os.fsdecode(entry)
-        _, extension = os.path.splitext(filename)
-        if extension in video_array:
-            vids.append("contents/"+name + "/"+entry.name)
-    random.shuffle(vids)
+    vids = get_content(name, video_array)
     return render_template("vids.html", post_entries=vids)
 
 
