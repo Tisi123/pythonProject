@@ -12,3 +12,7 @@ web_dev/personal_site/static/assets
 web_dev/blog_site/static
 web_dev/personal_site/static
 web_dev/webviewer_python/static/contents
+
+#static directory for bootstrap blog 
+web_dev/bootrsap_blog/static/assets
+web_dev/bootrsap_blog/static/css
