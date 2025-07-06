@@ -7,10 +7,47 @@
     <title>Document</title>
 </head>
 <body>
-    <div class="container"> 
-        {%for post in post_entries%}
-            <video controls src="{{url_for('static', filename=post)}}" width='560' height='315' muted loop></video>    
-        {%endfor%}
+    <div class="container" id="video-container">
+        <!-- Videos will be dynamically inserted here -->
     </div>
+
+    <script>
+        let offset = 0;
+        const container = document.getElementById('video-container');
+        let loading = false;
+
+        async function loadMoreVideos() {
+            if (loading) return;
+            loading = true;
+            try {
+                const folderName = "{{ folder_name }}";
+                const res = await fetch(`/load_more/${folderName}?offset=${offset}`);
+                const videos = await res.json();
+                videos.forEach(videoPath => {
+                    const video = document.createElement('video');
+                    video.src = videoPath;
+                    video.controls = true;
+                    video.width = 560;
+                    video.height = 315;
+                    video.muted = true;
+                    video.loop = true;
+                    container.appendChild(video);
+                });
+                offset += videos.length;
+            } catch (err) {
+                console.error("Error loading videos:", err);
+            }
+            loading = false;
+        }
+
+        function handleScroll() {
+            if (window.innerHeight + window.scrollY >= document.body.offsetHeight - 200) {
+                loadMoreVideos();
+            }
+        }
+
+        window.addEventListener('scroll', handleScroll);
+        window.addEventListener('load', loadMoreVideos);
+    </script>
 </body>
 </html>
